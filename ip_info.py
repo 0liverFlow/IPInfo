@@ -34,5 +34,3 @@ def get_ip_info(ip_address=''):
             print(f"[+] {key:21} | {value}")
         else:
             print(f"[-] {key:21} | {'N/A'}")
-
-get_ip_info('140.82.112.3')
