@@ -8,8 +8,8 @@ If you don't supply a query the current IP address will be used
 
 def get_ip_info(ip_address=''):
     url = "http://ip-api.com/json/" + ip_address
-    url_parameter = {'fields' : 'status,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,proxy, query'}
-    header = {
+    params = {'fields' : 'status,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,proxy, query'}
+    headers = {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
         'Accept-Encoding' : 'gzip, deflate, br',
         'Accept-Language' : 'en-US,en;q=0.9',
@@ -21,11 +21,10 @@ def get_ip_info(ip_address=''):
         "Sec-Fetch-Mode": "navigate",
         "Sec-Fetch-Site": "cross-site",
         "Sec-Fetch-User": "?1",
-        'Referer' : 'https://ip-api.com',
+        'Referer' : 'https://ip-api.com/',
         "User-Agent" : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2704.103 Safari/540.25"
     }
-    #https://geolocation-db.com/json
-    page = requests.get(url, headers=header, params=url_parameter)
+    page = requests.get(url, headers=headers, params=params)
     response = page.json()
     print(f"{'Fields':25} | {'Values'}")
     print("-"*50)
