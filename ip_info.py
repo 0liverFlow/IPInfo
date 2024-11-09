@@ -5,7 +5,7 @@ The API base path is http://ip-api.com/json/{query}
 {query} can be a single IPv4/IPv6 address or a domain name.
 If you don't supply a query the current IP address will be used
 """
-
+api_key=aabbccddeeffgghh123
 def get_ip_info(ip_address=''):
     url = "http://ip-api.com/json/" + ip_address
     params = {'fields' : 'status,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,isp,org,as,proxy,query'}
